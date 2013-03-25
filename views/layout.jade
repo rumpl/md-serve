@@ -6,5 +6,17 @@ html
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.min.css')
   body
-    div.row
-    block content
+    div.navbar.navbar-inverse.navbar-fixed-top
+        div.navbar-inner
+            div.container
+                a.brand md-serve
+    div.container
+        div.row-fluid
+          div.span3
+            div.well
+                ul.nav.nav-list
+                  each item in articles
+                    li
+                      a(href='/article?ar=#{item.file}') #{item.title}
+          div.span9
+            block content
