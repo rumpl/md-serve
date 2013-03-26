@@ -26,5 +26,5 @@ exports.get = function (req, res) {
   });
 
   var article = marked("" + articleMd);
-  res.render('article', { title: articleName, article : article });
+  res.render('article', { title: articleName.replace(/-/g, ' ').replace('.md', ''), article : article });
 };
