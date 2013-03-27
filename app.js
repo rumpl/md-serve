@@ -16,7 +16,7 @@ var options;
 try {
   options = require(path.join(process.env.HOME, '.md-read.json'));
 } catch (e) {
-  console.warn('.md-read.json file not found, creatin one with directory: ', process.cwd())
+  console.warn('.md-read.json file not found, creatin one with directory: ', process.cwd());
   options = { directory: process.cwd()};
   fs.writeFile(path.join(process.env.HOME, '.md-read.json'), JSON.stringify(options));
 }
@@ -35,7 +35,7 @@ app.configure(function () {
     loadArticles(function (articles) {
       res.locals.articles = articles;
       next();
-    })
+    });
   });
 
   app.use(app.router);
@@ -57,7 +57,7 @@ function loadArticles(callback) {
       articles.push({ title: files[i].replace(/-/g, ' ').replace('.md', ''), file: files[i]});
     }
     callback(articles);
-  })
+  });
 }
 
 http.createServer(app).listen(app.get('port'), function () {
