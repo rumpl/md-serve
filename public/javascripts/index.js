@@ -11,6 +11,7 @@ $(function () {
       .then(function (data) {
         title.html(data.title);
         content.html(data.article);
+        
         setTimeout(function () {
           title.show();
           content.show();
