@@ -1,6 +1,8 @@
 body {
   padding-top: 60px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
 }
 
 a {

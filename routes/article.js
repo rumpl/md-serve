@@ -26,5 +26,11 @@ exports.get = function (req, res) {
   });
 
   var article = marked("" + articleMd);
-  res.render('article', { title: articleName.replace(/-/g, ' ').replace('.md', ''), article : article });
+  if (req.xhr) {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.write(JSON.stringify({ title: articleName.replace(/-/g, ' ').replace('.md', ''), article: article }));
+    res.end();
+  } else {
+    res.render('article', { title: articleName.replace(/-/g, ' ').replace('.md', ''), article: article });
+  }
 };
